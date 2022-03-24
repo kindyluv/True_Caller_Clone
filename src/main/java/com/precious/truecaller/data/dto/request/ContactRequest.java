@@ -13,14 +13,14 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class ContactRequest {
-    @NotNull(message = "pls provide your last name, this field cannot be null")
+    @NotNull(message = "please provide your last name, this field cannot be null")
     private String name;
-    @NotNull(message = "pls provide a email, this cannot be null")
+    @NotNull(message = "please provide a email, this cannot be null")
     @Email(regexp = "^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$",
             message = "")
     private String email;
     @Size(min = 11, max = 14, message = "Phone number should be 11 character")
-    @NotNull(message = "pls provide a password, this cannot be null")
+    @NotNull(message = "please provide a password, this cannot be null")
     private MobileNumber mobileNumber;
     private String countryCode;
     private String companyName;
