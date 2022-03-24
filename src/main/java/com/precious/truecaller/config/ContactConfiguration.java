@@ -6,10 +6,11 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class ContactConfiguration {
+
     @Bean
     public ModelMapper modelMapper() {
-        ModelMapper modelMapper = new ModelMapper();
-        modelMapper.getConfiguration().setSkipNullEnabled(true);
-        return modelMapper;
+        ModelMapper mapper = new ModelMapper();
+        mapper.getConfiguration().setSkipNullEnabled(true);
+        return mapper;
     }
 }
