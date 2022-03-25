@@ -9,10 +9,10 @@ import java.util.List;
 
 public interface ContactService {
     ContactResponse addContact(ContactRequest contactRequest);
-    Boolean unBlockContactByMobileNumber(MobileNumber mobileNumber);
-    Boolean blockContactByMobileNumber(MobileNumber mobileNumber);
+    Boolean unBlockContactByMobileNumber(MobileNumber string);
+    Boolean blockContactByMobileNumber(MobileNumber string);
     ContactResponse editContact(String contactName, JsonPatch jsonPatch);
-    ContactResponse findContactByMobileNumber(MobileNumber mobileNumber);
+    ContactResponse findContactByMobileNumber(MobileNumber string);
     ContactResponse findContactById(Integer id);
     ContactResponse findByContactName(String contactName);
     List<ContactResponse> findAllContact();
