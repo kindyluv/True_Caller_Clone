@@ -17,6 +17,6 @@ public class MobileNumber {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private String countryCode;
-    private String mobileNumber;
+    private java.lang.String countryCode;
+    private java.lang.String mobileNumber;
 }
