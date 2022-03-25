@@ -53,7 +53,7 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public ContactResponse findContactByMobileNumber(MobileNumber string) {
+    public ContactResponse findContactByMobileNumber(String string) {
         if (string == null) throw new IllegalArgumentException("Mobile number can not be empty");
         Contact contact = contactRepository.findByMobileNumber(string).orElseThrow(
                 () -> new ContactNotFoundException("Mobile number " + string + " can doesnt exist with a name")
@@ -87,7 +87,7 @@ public class ContactServiceImpl implements ContactService {
         for (Contact contact : contacts) {
             ContactResponse response = ContactResponse.builder()
                     .name(contact.getName())
-                    .mobileNumber(contact.getMobileNumber())
+                    .mobileNumber(contact.getMobileNumber().getMobileNumber())
                     .build();
             responses.add(response);
         }
@@ -95,7 +95,7 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public Boolean blockContactByMobileNumber(MobileNumber string) {
+    public Boolean blockContactByMobileNumber(String string) {
         if (string == null) throw new IllegalArgumentException("Mobile number can not be empty");
         Contact contact = contactRepository.findByMobileNumber(string).orElseThrow(
                 () -> new ContactNotFoundException("Mobile number " + string + " can doesnt exist with a name")
@@ -128,7 +128,7 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public Boolean unBlockContactByMobileNumber(MobileNumber string) {
+    public Boolean unBlockContactByMobileNumber(String string) {
         if (string == null) throw new IllegalArgumentException("Mobile number can not be empty");
         Contact contact = contactRepository.findByMobileNumber(string).orElseThrow(
                 () -> new ContactNotFoundException("Mobile number " + string + " can doesnt exist with a name")
