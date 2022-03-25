@@ -9,7 +9,7 @@ import javax.persistence.Id;
 
 @Setter
 @Getter
-@Entity
+@Entity(name = "phone_number")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
@@ -17,6 +17,6 @@ public class MobileNumber {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
-    private java.lang.String countryCode;
-    private java.lang.String mobileNumber;
+    private String countryCode;
+    private String mobileNumber;
 }
