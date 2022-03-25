@@ -53,10 +53,10 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public ContactResponse findContactByMobileNumber(MobileNumber mobileNumber) {
-        if (mobileNumber == null) throw new IllegalArgumentException("Mobile number can not be empty");
-        Contact contact = contactRepository.findByMobileNumber(mobileNumber).orElseThrow(
-                () -> new ContactNotFoundException("Mobile number " + mobileNumber + " can doesnt exist with a name")
+    public ContactResponse findContactByMobileNumber(MobileNumber string) {
+        if (string == null) throw new IllegalArgumentException("Mobile number can not be empty");
+        Contact contact = contactRepository.findByMobileNumber(string).orElseThrow(
+                () -> new ContactNotFoundException("Mobile number " + string + " can doesnt exist with a name")
         );
         return objectMapper.convertValue(contact, ContactResponse.class);
     }
@@ -95,10 +95,10 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public Boolean blockContactByMobileNumber(MobileNumber mobileNumber) {
-        if (mobileNumber == null) throw new IllegalArgumentException("Mobile number can not be empty");
-        Contact contact = contactRepository.findByMobileNumber(mobileNumber).orElseThrow(
-                () -> new ContactNotFoundException("Mobile number " + mobileNumber + " can doesnt exist with a name")
+    public Boolean blockContactByMobileNumber(MobileNumber string) {
+        if (string == null) throw new IllegalArgumentException("Mobile number can not be empty");
+        Contact contact = contactRepository.findByMobileNumber(string).orElseThrow(
+                () -> new ContactNotFoundException("Mobile number " + string + " can doesnt exist with a name")
         );
         if (contact.getIsBlocked().equals(false)) contact.setIsBlocked(true);
         return contact.getIsBlocked();
@@ -128,10 +128,10 @@ public class ContactServiceImpl implements ContactService {
     }
 
     @Override
-    public Boolean unBlockContactByMobileNumber(MobileNumber mobileNumber) {
-        if (mobileNumber == null) throw new IllegalArgumentException("Mobile number can not be empty");
-        Contact contact = contactRepository.findByMobileNumber(mobileNumber).orElseThrow(
-                () -> new ContactNotFoundException("Mobile number " + mobileNumber + " can doesnt exist with a name")
+    public Boolean unBlockContactByMobileNumber(MobileNumber string) {
+        if (string == null) throw new IllegalArgumentException("Mobile number can not be empty");
+        Contact contact = contactRepository.findByMobileNumber(string).orElseThrow(
+                () -> new ContactNotFoundException("Mobile number " + string + " can doesnt exist with a name")
         );
         ;
         if (contact.getIsBlocked().equals(true)) contact.setIsBlocked(false);
