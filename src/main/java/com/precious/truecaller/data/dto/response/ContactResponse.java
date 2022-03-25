@@ -10,5 +10,6 @@ import lombok.*;
 @NoArgsConstructor
 public class ContactResponse {
     private String name;
-    private MobileNumber mobileNumber;
+    private String countryCode;
+    private String mobileNumber;
 }
