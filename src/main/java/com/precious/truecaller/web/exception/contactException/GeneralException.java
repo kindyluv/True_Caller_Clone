@@ -8,7 +8,7 @@ import java.time.ZonedDateTime;
 
 @AllArgsConstructor
 @Getter
-public class ContactException {
+public class GeneralException {
     private String message;
     private HttpStatus httpStatus;
     private ZonedDateTime timestamp;
