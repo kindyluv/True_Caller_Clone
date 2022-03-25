@@ -82,7 +82,7 @@ class ContactRepositoryTest {
 
     @Test
     void findByMobileNumber() {
-        Optional<Contact> contact1 = contactRepository.findByMobileNumber(contact.getMobileNumber());
+        Optional<Contact> contact1 = contactRepository.findByMobileNumber(contact.getMobileNumber().getMobileNumber());
         assertThat(contact1).isNotNull();
         assertThat(contact1.get().getName()).isEqualTo("Lois Amara");
     }
