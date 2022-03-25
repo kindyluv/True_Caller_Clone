@@ -56,14 +56,14 @@ class ContactServiceTest {
 
         contactRequest = ContactRequest.builder()
                 .name("Lois Amara")
-                .mobileNumber(savedString)
+                .mobileNumber(savedString.getMobileNumber())
                 .companyName("Semicolon_Africa")
                 .email("lois@gmail.com")
                 .build();
 
         contactRequest2 = ContactRequest.builder()
                 .name("Amara Jesus")
-                .mobileNumber(savedString2)
+                .mobileNumber(savedString2.getMobileNumber())
                 .companyName("Semicolon")
                 .email("amara@gmail.com")
                 .build();
