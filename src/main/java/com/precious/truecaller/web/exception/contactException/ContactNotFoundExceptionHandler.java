@@ -9,7 +9,7 @@ import java.time.ZonedDateTime;
 public class ContactNotFoundExceptionHandler {
 
     public ResponseEntity<Object> handleContactNotFoundRequestException(ContactNotFoundException exception){
-        ContactException ex = new ContactException(
+        GeneralException ex = new GeneralException(
                 exception.getMessage(),
                 HttpStatus.NOT_FOUND,
                 ZonedDateTime.now(ZoneId.of("Z"))
