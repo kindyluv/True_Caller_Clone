@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("api/v1/contact")
+@RequestMapping("/api/v1/contact")
 public class ContactController {
     private final ContactService contactService;
 
@@ -26,13 +26,13 @@ public class ContactController {
         return contactService.addContact(request);
     }
 
-    @GetMapping(path = "/{string}")
-    public ContactResponse findByMobileNumber(@PathVariable @RequestBody MobileNumber string){
-        return contactService.findContactByMobileNumber(string);
+    @GetMapping(path = "/{mobileNumber}")
+    public ContactResponse findByMobileNumber(@PathVariable String mobileNumber){
+        return contactService.findContactByMobileNumber(mobileNumber);
     }
 
     @GetMapping(path = "/{contactName}")
-    public ContactResponse findByContactName(@PathVariable java.lang.String contactName){
+    public ContactResponse findByContactName(@PathVariable String contactName){
         return contactService.findByContactName(contactName);
     }
 
@@ -41,32 +41,32 @@ public class ContactController {
         return contactService.findAllContact();
     }
 
-    @PatchMapping(path = "/blockContact/{string}")
-    public Boolean blockContactByMobileNumber(@PathVariable MobileNumber string){
-        return contactService.blockContactByMobileNumber(string);
+    @PatchMapping(path = "/{mobileNumber}")
+    public Boolean blockContactByMobileNumber(@PathVariable String mobileNumber){
+        return contactService.blockContactByMobileNumber(mobileNumber);
     }
     @PatchMapping(path = "/{contactName}", consumes = "application/json-patch+json")
-    public ContactResponse editContact(@PathVariable java.lang.String contactName, @RequestBody JsonPatch jsonPatch){
+    public ContactResponse editContact(@PathVariable String contactName, @RequestBody JsonPatch jsonPatch){
         return  contactService.editContact(contactName, jsonPatch);
     }
 
-    @PatchMapping(path = "/unblockContact/{string}")
-    public Boolean unBlockContactByMobileNumber(@PathVariable MobileNumber string){
-        return contactService.unBlockContactByMobileNumber(string);
+    @PatchMapping(path = "/{phoneNumber}")
+    public Boolean unBlockContactByMobileNumber(@PathVariable String phoneNumber){
+        return contactService.unBlockContactByMobileNumber(phoneNumber);
     }
 
     @DeleteMapping(path = "/{contactName}")
-    public java.lang.String deleteContactByContactName(@PathVariable java.lang.String contactName){
+    public String deleteContactByContactName(@PathVariable String contactName){
         return contactService.deleteContactByContactName(contactName);
     }
 
     @DeleteMapping(path = "/{id}")
-    public java.lang.String deleteContactById(@PathVariable Integer id){
+    public String deleteContactById(@PathVariable Integer id){
         return contactService.deleteContactById(id);
     }
 
     @DeleteMapping
-    public java.lang.String deleteAllContact(){
+    public String deleteAllContact(){
         return contactService.deleteAllContact();
     }
 }
