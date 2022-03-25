@@ -29,27 +29,27 @@ class ContactRepositoryTest {
     }
 
     Contact contact, savedContact;
-    MobileNumber mobileNumber, mobileNumber1;
-    MobileNumber savedMobileNumber;
+    MobileNumber string, string1;
+    MobileNumber savedString;
 
 
     @BeforeEach
     void setUp(){
-        mobileNumber = MobileNumber.builder()
+        string = MobileNumber.builder()
                 .countryCode("+234")
                 .mobileNumber("09023333333")
                 .build();
 
-        mobileNumber1 = MobileNumber.builder()
+        string1 = MobileNumber.builder()
                 .countryCode("+234")
                 .mobileNumber("09023333789")
                 .build();
 
-        savedMobileNumber = mobileNumberRepository.save(mobileNumber1);
+        savedString = mobileNumberRepository.save(string1);
 
         contact = Contact.builder()
                 .name("Lois Amara")
-                .mobileNumber(savedMobileNumber)
+                .mobileNumber(savedString)
                 .companyName("Semicolon")
                 .email("lois@gmail.com")
                 .isBlocked(false)
