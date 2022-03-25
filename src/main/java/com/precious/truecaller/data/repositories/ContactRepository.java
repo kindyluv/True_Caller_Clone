@@ -16,5 +16,5 @@ public interface ContactRepository extends JpaRepository<Contact, Integer> {
     void deleteByName(String name);
 
 
-    Optional<Contact> findByMobileNumber(MobileNumber string);
+    Optional<Contact> findByMobileNumber(String mobileNumber);
 }
