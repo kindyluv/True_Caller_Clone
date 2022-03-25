@@ -37,33 +37,33 @@ class ContactServiceTest {
     ContactResponse contactResponse, contactResponse2;
     ContactRequest contactRequest, contactRequest2;
     Contact contact, savedContact;
-    MobileNumber mobileNumber, mobileNumber1;
-    MobileNumber savedMobileNumber, savedMobileNumber2;
+    MobileNumber string, string1;
+    MobileNumber savedString, savedString2;
 
     @BeforeEach
     void setUp() {
-        mobileNumber = MobileNumber.builder()
+        string = MobileNumber.builder()
                 .countryCode("+234")
                 .mobileNumber("09023333333")
                 .build();
-        savedMobileNumber2 = mobileNumberRepository.save(mobileNumber);
+        savedString2 = mobileNumberRepository.save(string);
 
-        mobileNumber1 = MobileNumber.builder()
+        string1 = MobileNumber.builder()
                 .countryCode("+234")
                 .mobileNumber("09023333789")
                 .build();
-        savedMobileNumber = mobileNumberRepository.save(mobileNumber1);
+        savedString = mobileNumberRepository.save(string1);
 
         contactRequest = ContactRequest.builder()
                 .name("Lois Amara")
-                .mobileNumber(savedMobileNumber)
+                .mobileNumber(savedString)
                 .companyName("Semicolon_Africa")
                 .email("lois@gmail.com")
                 .build();
 
         contactRequest2 = ContactRequest.builder()
                 .name("Amara Jesus")
-                .mobileNumber(savedMobileNumber2)
+                .mobileNumber(savedString2)
                 .companyName("Semicolon")
                 .email("amara@gmail.com")
                 .build();
