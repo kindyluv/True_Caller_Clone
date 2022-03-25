@@ -6,10 +6,10 @@ import org.springframework.http.ResponseEntity;
 import java.time.ZoneId;
 import java.time.ZonedDateTime;
 
-public class ContactAlreadyExistHandler {
+public class AlreadyExistHandler {
 
     public ResponseEntity<Object> handleContactAlreadyExist(ContactAlreadyExistsException ex){
-        ContactException exp = new ContactException(
+        GeneralException exp = new GeneralException(
                 ex.getMessage(),
                 HttpStatus.BAD_REQUEST,
                 ZonedDateTime.now(ZoneId.of("Z"))
