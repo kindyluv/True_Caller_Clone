@@ -16,5 +16,5 @@ public class Call {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     @OneToMany
-    private List<MobileNumber> MobileNumber;
+    private List<MobileNumber> String;
 }
