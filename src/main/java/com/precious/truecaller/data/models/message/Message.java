@@ -8,11 +8,10 @@ import java.util.List;
 
 @Setter
 @Getter
-@Entity
+@Entity(name = "messenger")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "messages")
 public class Message {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
