@@ -9,11 +9,10 @@ import java.util.List;
 
 @Setter
 @Getter
-@Entity
+@Entity(name = "app_user")
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-@Table(name = "accounts")
 public class Account {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
