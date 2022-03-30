@@ -37,33 +37,38 @@ class ContactServiceTest {
     ContactResponse contactResponse, contactResponse2;
     ContactRequest contactRequest, contactRequest2;
     Contact contact, savedContact;
-    MobileNumber string, string1;
+    MobileNumber string, string1, string2;
     MobileNumber savedString, savedString2;
 
     @BeforeEach
     void setUp() {
         string = MobileNumber.builder()
                 .countryCode("+234")
-                .mobileNumber("09023333333")
+                .number("09023333333")
                 .build();
         savedString2 = mobileNumberRepository.save(string);
 
+        string2 = MobileNumber.builder()
+                .countryCode("+234")
+                .number("09023333789")
+                .build();
+
         string1 = MobileNumber.builder()
                 .countryCode("+234")
-                .mobileNumber("09023333789")
+                .number("09023333789")
                 .build();
         savedString = mobileNumberRepository.save(string1);
 
         contactRequest = ContactRequest.builder()
-                .name("Lois Amara")
-                .mobileNumber(savedString.getMobileNumber())
+                .userName("Lois Amara")
+                .mobileNumber(string2.getNumber())
                 .companyName("Semicolon_Africa")
                 .email("lois@gmail.com")
                 .build();
 
         contactRequest2 = ContactRequest.builder()
-                .name("Amara Jesus")
-                .mobileNumber(savedString2.getMobileNumber())
+                .userName("Amara Jesus")
+                .mobileNumber(savedString2.getNumber())
                 .companyName("Semicolon")
                 .email("amara@gmail.com")
                 .build();
@@ -79,16 +84,17 @@ class ContactServiceTest {
     void addContact() {
        ContactResponse response = contactService.addContact(contactRequest);
        assertThat(response).isNotNull();
-       assertThat(response.getName()).isEqualTo(contactRequest.getName());
+       assertThat(response.getUserName()).isEqualTo(contactRequest.getUserName());
     }
 
     @Test
     void blockContactByMobileNumber() {
         ContactResponse response = contactService.addContact(contactRequest);
         assertThat(response).isNotNull();
-        assertThat(response.getName()).isEqualTo(contactRequest.getName());
+        assertThat(response.getUserName()).isEqualTo(contactRequest.getUserName());
 
-        Boolean isBlocked = contactService.blockContactByMobileNumber(response.getMobileNumber());
+        Boolean isBlocked = contactService.blockContactByContactName(response.getUserName());
+        response.setIsBlocked(true);
         assertThat(isBlocked).isTrue();
     }
 
@@ -96,12 +102,12 @@ class ContactServiceTest {
     void unBlockContactByMobileNumber() {
         ContactResponse response = contactService.addContact(contactRequest);
         assertThat(response).isNotNull();
-        assertThat(response.getName()).isEqualTo(contactRequest.getName());
+        assertThat(response.getUserName()).isEqualTo(contactRequest.getUserName());
 
-        Boolean isBlocked = contactService.blockContactByMobileNumber(response.getMobileNumber());
+        Boolean isBlocked = contactService.blockContactByContactName(response.getUserName());
         assertThat(isBlocked).isTrue();
 
-        Boolean isUnBlocked = contactService.unBlockContactByMobileNumber(response.getMobileNumber());
+        Boolean isUnBlocked = contactService.unBlockContactByContactName(response.getUserName());
         assertThat(isUnBlocked).isFalse();
     }
 
@@ -112,22 +118,31 @@ class ContactServiceTest {
 
     @Test
     void findContactByMobileNumber() {
-        ContactResponse response = contactService.findContactByMobileNumber(contactResponse2.getMobileNumber());
+        ContactResponse response = contactService.addContact(contactRequest);
         assertThat(response).isNotNull();
-        assertThat(response.getName()).isEqualTo(contactRequest2.getName());
-    }
+        assertThat(response.getUserName()).isEqualTo(contactRequest.getUserName());
 
-//    @Test
-//    void findContactById() {
-//        Optional<Contact> response = contactService.findContactById(contactResponse2.get);
-//    }
+        ContactResponse response2 = contactService.findContactByMobileNumber(string2.getNumber());
+        assertThat(response2).isNotNull();
+//        assertThat(response2.getUserName()).isEqualTo(contactRequest2.getUserName());
+    }
 
     @Test
     void findContactByContactName() {
-//        ContactResponse res = contactService.findByContactName();
-//        ContactResponse response = contactService.findByContactName(contactResponse2.getName());
-//        assertThat(response).isNotNull();
-//        assertThat(response.getName()).isEqualTo(contactResponse2.getName());
+        contactRequest = ContactRequest.builder()
+                .userName("Lois Amara")
+                .mobileNumber(savedString.getNumber())
+                .companyName("Semicolon_Africa")
+                .email("lois@gmail.com")
+                .build();
+
+        ContactResponse response = contactService.addContact(contactRequest);
+        assertThat(response).isNotNull();
+        assertThat(response.getUserName()).isEqualTo(contactRequest.getUserName());
+
+        ContactResponse res = contactService.findByContactName(response.getUserName());
+        assertThat(res).isNotNull();
+        assertThat(res.getUserName()).isEqualTo(contactRequest.getUserName());
     }
 
     @Test
@@ -138,11 +153,11 @@ class ContactServiceTest {
 
     @Test
     void deleteContactByContactName() {
-        ContactResponse response = contactService.findByContactName(contactResponse2.getName());
+        ContactResponse response = contactService.findByContactName(contactResponse2.getUserName());
         assertThat(response).isNotNull();
-        assertThat(response.getName()).isEqualTo(contactRequest2.getName());
+//        assertThat(response.getUserName()).isEqualTo(contactRequest2.getUserName());
 
-        contactService.deleteContactByContactName(response.getName());
+        contactService.deleteContactByContactName(response.getUserName());
         List<ContactResponse> responses = contactService.findAllContact();
         assertThat(responses.size()).isEqualTo(0);
     }

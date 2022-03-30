@@ -1,6 +1,10 @@
 package com.precious.truecaller.data.dto.request;
 
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
+import lombok.Builder;
 
 import javax.validation.constraints.NotNull;
 
@@ -13,5 +17,5 @@ public class MobileNumberRequest {
     @NotNull(message = "Field can not be null")
     private String countryCode;
     @NotNull(message = "Field can not be null")
-    private String mobileNumber;
+    private String number;
 }

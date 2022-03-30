@@ -1,11 +1,13 @@
 package com.precious.truecaller.data.models.mobile;
 
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.time.LocalDateTime;
 
 @Setter
 @Getter
@@ -18,5 +20,8 @@ public class MobileNumber {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String countryCode;
-    private String mobileNumber;
+    private String number;
+    private Boolean isBlocked = false;
+    @CreationTimestamp
+    private LocalDateTime dateCreated;
 }

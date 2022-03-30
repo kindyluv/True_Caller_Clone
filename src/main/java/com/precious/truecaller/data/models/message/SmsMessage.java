@@ -2,8 +2,10 @@ package com.precious.truecaller.data.models.message;
 
 import com.precious.truecaller.data.models.contact.Contact;
 import lombok.*;
+import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.List;
 
 @Setter
@@ -12,11 +14,13 @@ import java.util.List;
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class Message {
+public class SmsMessage {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Integer id;
     private String messageBody;
-    @OneToMany
-    private List<Contact> contact;
+    private String smsSender;
+    private String smsReceiver;
+    @CreationTimestamp
+    private LocalDate dateCreated;
 }

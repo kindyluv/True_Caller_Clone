@@ -1,7 +1,8 @@
 package com.precious.truecaller.data.dto.response;
 
-import com.precious.truecaller.data.models.mobile.MobileNumber;
 import lombok.*;
+
+import java.time.LocalDateTime;
 
 @Setter
 @Getter
@@ -9,7 +10,9 @@ import lombok.*;
 @AllArgsConstructor
 @NoArgsConstructor
 public class ContactResponse {
-    private String name;
+    private String userName;
     private String countryCode;
     private String mobileNumber;
+    private Boolean isBlocked;
+    private LocalDateTime dateCreated;
 }

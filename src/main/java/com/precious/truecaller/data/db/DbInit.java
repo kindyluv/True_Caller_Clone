@@ -33,12 +33,12 @@ public class DbInit {
         Contact contact1, contact2, contact3, contact4;
         mobileNumber1 = MobileNumber.builder()
                 .countryCode("+234")
-                .mobileNumber("07037271515")
+                .number("08037271515")
                 .build();
         MobileNumber mob1 = mobileNumberRepository.save(mobileNumber1);
 
         contact1 = Contact.builder()
-                .name("Olatoye David")
+                .userName("Olatoye David")
                 .companyName("semi-wise")
                 .email("daramolatoye@gmail.com")
                 .mobileNumber(mob1)
@@ -48,12 +48,12 @@ public class DbInit {
 
         mobileNumber2 = MobileNumber.builder()
                 .countryCode("+234")
-                .mobileNumber("08097654322")
+                .number("08097654322")
                 .build();
         MobileNumber mob2 = mobileNumberRepository.save(mobileNumber2);
 
         contact2 = Contact.builder()
-                .name("David Opeyemi")
+                .userName("David Opeyemi")
                 .companyName("semi-Engine")
                 .email("opedavid@gmail.com")
                 .mobileNumber(mob2)
@@ -63,12 +63,12 @@ public class DbInit {
 
         MobileNumber mob3 = mobileNumber3 = MobileNumber.builder()
                 .countryCode("+234")
-                .mobileNumber("07067871515")
+                .number("07067871515")
                 .build();
         mobileNumberRepository.save(mob3);
 
         contact3 = Contact.builder()
-                .name("Olaitan David")
+                .userName("Olaitan David")
                 .companyName("semi-Comic")
                 .email("olaitandavid@gmail.com")
                 .mobileNumber(mobileNumber3)
@@ -78,12 +78,12 @@ public class DbInit {
 
         mobileNumber4 = MobileNumber.builder()
                 .countryCode("+234")
-                .mobileNumber("07037271515")
+                .number("07037271515")
                 .build();
         MobileNumber mob4 = mobileNumberRepository.save(mobileNumber4);
 
         contact4 = Contact.builder()
-                .name("Joshua David")
+                .userName("Joshua David")
                 .companyName("semi-prep")
                 .email("joshuadavid@gmail.com")
                 .mobileNumber(mob4)

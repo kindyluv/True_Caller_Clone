@@ -41,18 +41,18 @@ public class ContactController {
         return contactService.findAllContact();
     }
 
-    @PatchMapping(path = "/{mobileNumber}")
-    public Boolean blockContactByMobileNumber(@PathVariable String mobileNumber){
-        return contactService.blockContactByMobileNumber(mobileNumber);
+    @PatchMapping(path = "/block/{contactName}")
+    public Boolean blockContactByContactName(@PathVariable String contactName){
+        return contactService.blockContactByContactName(contactName);
     }
     @PatchMapping(path = "/{contactName}", consumes = "application/json-patch+json")
     public ContactResponse editContact(@PathVariable String contactName, @RequestBody JsonPatch jsonPatch){
         return  contactService.editContact(contactName, jsonPatch);
     }
 
-    @PatchMapping(path = "/{phoneNumber}")
-    public Boolean unBlockContactByMobileNumber(@PathVariable String phoneNumber){
-        return contactService.unBlockContactByMobileNumber(phoneNumber);
+    @PatchMapping(path = "/unBlock/{contactName}")
+    public Boolean unBlockContactByContactName(@PathVariable String contactName){
+        return contactService.unBlockContactByContactName(contactName);
     }
 
     @DeleteMapping(path = "/{contactName}")
