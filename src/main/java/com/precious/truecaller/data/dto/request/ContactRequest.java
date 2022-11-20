@@ -25,7 +25,7 @@ public class ContactRequest {
     private String email;
 
     @Size(min = 11, max = 14, message = "Phone number should be 11 character")
-    @NotNull(message = "please provide a password, this cannot be null")
+    @NotNull(message = "please provide a mobile number, this cannot be null")
     private String mobileNumber;
 
     private String countryCode;

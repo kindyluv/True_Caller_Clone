@@ -23,12 +23,17 @@ public class Account {
     private Integer id;
 
     @Column(unique = true)
-    private String userName;
+    private String firstName;
+
+    @Column(unique = true)
+    private String lastName;
 
     @Column(unique = true)
     private String email;
 
     private String password;
+    @OneToOne
+    private MobileNumber mobileNumber;
 
     @OneToMany(fetch = FetchType.EAGER)
     private List<Contact> contact;
@@ -39,6 +44,9 @@ public class Account {
 
     @OneToMany(fetch = FetchType.EAGER)
     private Set<MobileNumber> blockedNumbers;
+
+    @Embedded
+    private Address userAddress;
 
     @CreationTimestamp
     private LocalDate lastAccessed;

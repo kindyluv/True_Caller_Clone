@@ -18,4 +18,5 @@ public interface AccountService {
     Account findAccountDetailsByEmail(String email);
     List<Account> findAllAccounts();
     Boolean deactivateAccountByAccountEmail(String email);
+
 }

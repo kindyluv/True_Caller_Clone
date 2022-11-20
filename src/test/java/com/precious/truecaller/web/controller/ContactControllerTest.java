@@ -1,11 +1,10 @@
 package com.precious.truecaller.web.controller;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.precious.truecallerclone.data.repositories.ContactRepository;
+import com.precious.truecaller.data.repositories.ContactRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
-import org.mockito.Mock;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.data.jdbc.DataJdbcTest;
 import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
@@ -40,13 +39,13 @@ class ContactControllerTest {
 
    @Test
    @DisplayName("Add new contact to contact list")
-   void addContact() {
+   void addContact() throws Exception {
        MockHttpServletRequestBuilder request = MockMvcRequestBuilders.post("")
                .param("name", "Lois Mama")
                .param("companyName", "Semicolon")
                .param("email", "loismama@gmail.com")
-               .param("mobileNumber", "")
-               .param();
+               .param("mobileNumber", "");
+//               .param();
        mvc.perform(request
                .contentType("application.json"))
                .andExpect(status().is(200))

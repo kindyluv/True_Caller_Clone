@@ -20,6 +20,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
 
@@ -46,7 +47,6 @@ public class ContactServiceImpl implements ContactService {
 
         MobileNumber mobileNumber = mobileNumberRepository.save(
                 MobileNumber.builder()
-                        .isBlocked(false)
                         .number(contactRequest.getMobileNumber())
                         .build());
 
@@ -75,7 +75,8 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public ContactResponse findByContactName(String contactName) {
-        Contact contact = contactRepository.findByUserName(contactName).orElse(null);
+        String name = Arrays.toString(contactName.trim().split("\\s+"));
+        Contact contact = contactRepository.findByUserName(name).orElse(null);
         if (contact == null) throw new ContactNotFoundException("Contact with contact name " + contactName + " is not found");
 
         return modelMapper.map(contact, ContactResponse.class);
@@ -159,7 +160,7 @@ public class ContactServiceImpl implements ContactService {
 
     @Override
     public String deleteContactById(Integer id) {
-        Contact contact = contactRepository.findById(id).orElseThrow(
+        contactRepository.findById(id).orElseThrow(
                 ()-> new ContactNotFoundException("Contact with id" + id + " not found")
         );
         contactRepository.deleteById(id);

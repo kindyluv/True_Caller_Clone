@@ -1,0 +1,12 @@
+com\precious\truecaller\data\repositories\ContactRepositoryTest.class
+com\precious\truecaller\service\messageService\SmsSenderServiceTest.class
+com\precious\truecaller\web\controller\ContactControllerTest.class
+com\precious\truecaller\service\userService\AccountServiceTest.class
+com\precious\truecaller\TrueCallerApplicationTests.class
+com\precious\truecaller\service\contactService\ContactServiceTest.class
+com\precious\truecaller\service\messageService\GeneralMessageNotificationTest.class
+com\precious\truecaller\service\mobileService\MobileNumberServiceTest.class
+com\precious\truecaller\data\repositories\AccountRepositoryTest.class
+com\precious\truecaller\data\repositories\SmsMessageRepositoryTest.class
+com\precious\truecaller\data\repositories\MobileNumberRepositoryTest.class
+com\precious\truecaller\service\messageService\SmsMessageServiceTest.class

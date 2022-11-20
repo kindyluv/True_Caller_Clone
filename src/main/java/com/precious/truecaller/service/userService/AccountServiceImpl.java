@@ -67,7 +67,7 @@ public class AccountServiceImpl implements AccountService{
     public String deleteAccountDetailsByEmail(String email) {
         Account account = findAccountDetailsByEmail(email);
         accountRepository.deleteByEmail(account.getEmail());
-        return "Account "+ account.getUserName() + " has been successfully deleted";
+        return "Account "+ account.getFirstName() + " has been successfully deleted";
     }
 
     @Override
