@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 
 @Setter
 @Getter
-@Entity(name = "phone_number")
+@Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor

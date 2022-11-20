@@ -11,7 +11,7 @@ import java.util.List;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "sms_sender")
+@Entity
 public class SmsSender {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)

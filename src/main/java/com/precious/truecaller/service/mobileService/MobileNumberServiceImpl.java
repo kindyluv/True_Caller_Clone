@@ -42,8 +42,8 @@ public class MobileNumberServiceImpl implements MobileNumberService{
         if (foundMobileNumber == null) throw new MobileNumberAlreadyExistException("Mobile number already exist");
 
         if (foundMobileNumber.getIsBlocked().equals(false)) foundMobileNumber.setIsBlocked(true);
-            MobileNumber saved = mobileNumberRepository.save(foundMobileNumber);
-            return saved.getIsBlocked();
+        MobileNumber saved = mobileNumberRepository.save(foundMobileNumber);
+        return saved.getIsBlocked();
     }
 
     @Override
@@ -59,7 +59,7 @@ public class MobileNumberServiceImpl implements MobileNumberService{
     @Override
     public List<MobileNumber> findAllBlockedMobileNumbers() {
         List<MobileNumber> numbers = mobileNumberRepository.findAll();
-        List<MobileNumber> isBlockedNumbers = new ArrayList<MobileNumber>();
+        List <MobileNumber> isBlockedNumbers = new ArrayList<MobileNumber>();
         for (MobileNumber mobileNumber : numbers) {
             if (mobileNumber.getIsBlocked().equals(true)) isBlockedNumbers.add(mobileNumber);
         }

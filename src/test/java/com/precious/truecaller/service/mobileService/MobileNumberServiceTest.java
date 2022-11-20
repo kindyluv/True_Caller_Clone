@@ -36,13 +36,14 @@ class MobileNumberServiceTest {
 
     @AfterEach
     void tearDown() {
+//        mobileNumberService.deleteAllMobileNumber();
     }
 
     @Test
     void addMobileNumber() {
       MobileNumberRequest mobileNumberRequest = MobileNumberRequest.builder()
                .countryCode("+234")
-                .number("09032456767")
+                .number("09032456789")
                 .build();
 
        MobileNumberResponse mobileNumberResponse = mobileNumberService.addMobileNumber(mobileNumberRequest);
@@ -55,7 +56,7 @@ class MobileNumberServiceTest {
     void blockedContactByMobileNumber() {
         MobileNumberRequest mobileNumberRequest = MobileNumberRequest.builder()
                 .countryCode("+234")
-                .number("09032456767")
+                .number("09039856767")
                 .build();
 
         MobileNumberResponse mobileNumberResponse = mobileNumberService.addMobileNumber(mobileNumberRequest);
@@ -71,7 +72,7 @@ class MobileNumberServiceTest {
     void unBlockedMobileNumberByMobileNumber() {
         MobileNumberRequest mobileNumberRequest = MobileNumberRequest.builder()
                 .countryCode("+234")
-                .number("09032456767")
+                .number("09032463767")
                 .build();
 
         MobileNumberResponse mobileNumberResponse = mobileNumberService.addMobileNumber(mobileNumberRequest);
@@ -90,7 +91,7 @@ class MobileNumberServiceTest {
     void findAllBlockedMobileNumbers() {
         MobileNumberRequest mobileNumberRequest = MobileNumberRequest.builder()
                 .countryCode("+234")
-                .number("09032456767")
+                .number("07032456767")
                 .build();
 
         MobileNumberResponse mobileNumberResponse = mobileNumberService.addMobileNumber(mobileNumberRequest);

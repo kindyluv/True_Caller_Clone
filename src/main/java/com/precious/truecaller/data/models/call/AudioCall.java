@@ -9,7 +9,7 @@ import javax.persistence.*;
 import java.time.LocalDate;
 import java.util.List;
 
-@Entity(name = "audio_callers")
+@Entity
 @Setter
 @Getter
 @Builder

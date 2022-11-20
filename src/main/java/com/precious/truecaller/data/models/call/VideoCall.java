@@ -14,7 +14,7 @@ import java.util.UUID;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-@Entity(name="video_caller")
+@Entity
 public class VideoCall {
     @Id
     @GeneratedValue(strategy= GenerationType.AUTO)
