@@ -1,8 +1,8 @@
 package com.precious.truecaller.web.controller;
 
 import com.precious.truecaller.data.dto.request.EmailMessageRequest;
-import com.precious.truecaller.service.messageService.GeneralMessageNotification;
-import com.precious.truecaller.service.messageService.SmsSenderService;
+import com.precious.truecaller.service.messageService.email.GeneralMessageNotification;
+import com.precious.truecaller.service.messageService.sms.SmsSenderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

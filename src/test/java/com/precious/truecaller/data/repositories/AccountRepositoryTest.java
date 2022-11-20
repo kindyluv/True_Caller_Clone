@@ -48,13 +48,11 @@ class AccountRepositoryTest {
         mobileNumber3 = mobileNumberRepository.save(MobileNumber.builder()
                 .countryCode("234")
                 .number("08097654855")
-                .isBlocked(true)
                 .build());
 
         mobileNumber4 = mobileNumberRepository.save(MobileNumber.builder()
                 .countryCode("234")
                 .number("09095854325")
-                .isBlocked(false)
                 .build());
 
 //        List<MobileNumber> listOfMobileNumbers = Arrays.asList(mobileNumber3, mobileNumber4);
@@ -67,25 +65,26 @@ class AccountRepositoryTest {
 //        }
 
          contact1 = contactRepository.save(Contact.builder()
-                .userName("Lois Amarachi")
-                .companyName("Semicolon")
+//                .userAccount.getFirstName("Lois Amarachi")
+//                .companyName("Semicolon")
                 .isBlocked(false)
-                .mobileNumber(mobileNumber3)
-                .email("toe@gmail.com")
+//                .mobileNumber(mobileNumber3)
+//                .email("toe@gmail.com")
                 .build());
 
         contact3 = contactRepository.save(Contact.builder()
-                .userName("Kindness")
-                .companyName("Semicolon.Africa.Dev")
+//                .userAccount("Kindness")
+//                .companyName("Semicolon.Africa.Dev")
                 .isBlocked(false)
-                .mobileNumber(mobileNumber4)
-                .email("ola@gmail.com")
+//                .mobileNumber(mobileNumber4)
+//                .email("ola@gmail.com")
                 .build());
 
         List<Contact> contacts = List.of(contact1, contact3);
 
         account = accountRepository.save(Account.builder()
-                .userName("Delight Chukwuma")
+                .firstName("Delight")
+                .lastName("Chukwuma")
                 .password("password")
                 .userCategory(UserCategory.FREE)
                 .contact(contacts)

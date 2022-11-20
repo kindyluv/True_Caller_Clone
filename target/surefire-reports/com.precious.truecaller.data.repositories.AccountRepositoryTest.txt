@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.precious.truecaller.data.repositories.AccountRepositoryTest
+-------------------------------------------------------------------------------
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 13.018 s - in com.precious.truecaller.data.repositories.AccountRepositoryTest

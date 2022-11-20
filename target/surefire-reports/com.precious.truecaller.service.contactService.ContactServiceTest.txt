@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.precious.truecaller.service.contactService.ContactServiceTest
+-------------------------------------------------------------------------------
+Tests run: 9, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 11.817 s - in com.precious.truecaller.service.contactService.ContactServiceTest

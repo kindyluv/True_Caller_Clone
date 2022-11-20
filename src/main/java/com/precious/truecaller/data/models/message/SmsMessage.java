@@ -1,5 +1,6 @@
 package com.precious.truecaller.data.models.message;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.precious.truecaller.data.models.contact.Contact;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -22,5 +23,6 @@ public class SmsMessage {
     private String smsSender;
     private String smsReceiver;
     @CreationTimestamp
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDate dateCreated;
 }

@@ -1,5 +1,6 @@
 package com.precious.truecaller.data.models.mobile;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
 
@@ -23,5 +24,6 @@ public class MobileNumber {
     private String number;
     private Boolean isBlocked = false;
     @CreationTimestamp
+    @JsonFormat(pattern = "dd/MM/yyyy")
     private LocalDateTime dateCreated;
 }

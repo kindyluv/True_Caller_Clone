@@ -1,5 +1,6 @@
 package com.precious.truecaller.data.models.contact;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.precious.truecaller.data.models.mobile.MobileNumber;
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -31,5 +32,6 @@ public class Contact {
     private Boolean isBlocked = false;
 
     @CreationTimestamp
+    @JsonFormat(pattern="dd/MM/yyyy")
     private LocalDate dateCreated;
 }

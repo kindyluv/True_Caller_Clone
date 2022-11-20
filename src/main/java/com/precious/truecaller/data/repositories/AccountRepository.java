@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 
 @Repository
 public interface AccountRepository extends JpaRepository<Account, Integer> {
-    @Async
+
     Account findByEmail(String email);
     @Transactional
     void deleteByEmail(String email);

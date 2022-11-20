@@ -189,7 +189,7 @@ class AccountServiceTest {
         assertThat(response).isNotNull();
         assertThat(response.getEmail()).isEqualTo(accountRequest.getEmail());
         Account foundAccount = accountService.findAccountDetailsByEmail(response.getEmail());
-        assertThat(foundAccount.getUserName()).isEqualTo(response.getUserName());
+        assertThat(foundAccount.getFirstName()).isEqualTo(response.getUserName());
     }
 
     @Test
