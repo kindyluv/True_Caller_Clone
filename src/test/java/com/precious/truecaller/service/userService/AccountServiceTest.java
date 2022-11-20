@@ -35,16 +35,14 @@ class AccountServiceTest {
     private final ContactService contactService;
     private final MobileNumberRepository mobileNumberRepository;
     private final AccountRepository accountRepository;
-    private final ModelMapper modelMapper;
 
     @Autowired
     AccountServiceTest(AccountService accountService, ContactService contactService,
-                       MobileNumberRepository mobileNumberRepository, AccountRepository accountRepository, ModelMapper modelMapper) {
+                       MobileNumberRepository mobileNumberRepository, AccountRepository accountRepository) {
         this.accountService = accountService;
         this.contactService = contactService;
         this.mobileNumberRepository = mobileNumberRepository;
         this.accountRepository = accountRepository;
-        this.modelMapper = modelMapper;
     }
 
     private ContactRequest request1, request2, request3;

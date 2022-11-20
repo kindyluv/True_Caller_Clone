@@ -12,7 +12,7 @@ import java.util.Set;
 
 @Setter
 @Getter
-@Entity(name = "app_user")
+@Entity
 @Builder
 @ToString
 @AllArgsConstructor

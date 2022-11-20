@@ -12,7 +12,7 @@ import javax.persistence.Id;
 @Getter
 @AllArgsConstructor
 @NoArgsConstructor
-@Entity(name = "email_sender")
+@Entity
 public class EmailMessage {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
